@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from '/Users/Prince/Desktop/kaabil/kaabil/src/assets/home.jpg';
-
+import '/Users/Prince/Desktop/kaabil/kaabil/src/Home.css'
 const Home = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', comments: '' });
@@ -24,6 +24,21 @@ const Home = () => {
     closeModal();
   };
 
+  // Close modal when pressing Esc key
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.keyCode === 27 && isModalOpen) {
+        closeModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleEsc);
+
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, [isModalOpen]);
+
   return (
     <div className='flex h-screen'>
       <div className="w-1/2 p-10" style={{ fontFamily: 'Roboto, sans-serif' }}>
@@ -38,8 +53,8 @@ const Home = () => {
         <img src={Image} alt="Company" className="w-full h-full object-cover"/>
       </div>
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-75">
-          <div className="bg-white p-8 rounded-lg max-w-xl w-full">
+        <div className="modal-wrapper">
+          <div className="modal">
             <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
