@@ -1,7 +1,7 @@
 import React, { useState, useEffect , useRef } from 'react';
 import "../Home.css";
-import emailjs from '@emailjs/browser'; // Import emailjs-com instead of @emailjs/browser
-import NavBar from './NavBar';
+import emailjs from '@emailjs/browser';
+import NavBar from '../components/NavBar';
 import Lottie from 'lottie-react';
 import animationData from '../assets/try1.json';
 
