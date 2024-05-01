@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser'; // Import emailjs-com instead of @emailj
 import NavBar from './NavBar';
 import Lottie from 'lottie-react';
 import animationData from '../assets/try1.json';
+import backgroundImage from '../assets/bg.jpg';
 
 const Home = () => {
   const form= useRef();
@@ -65,7 +66,7 @@ const Home = () => {
   }, [isModalOpen]);
 
   return (
-    <div className='flex h-screen bg-black justify-center items-center'>
+    <div className='flex h-screen bg-black justify-center items-center'  style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
        <NavBar />
       <div className="w-1/2 p-10" style={{ fontFamily: 'Roboto Mono, monospace' }}>
        
