@@ -66,7 +66,7 @@ const Home = () => {
   }, [isModalOpen]);
 
   return (
-    <div className='flex h-screen justify-center items-center' style={{ background: 'linear-gradient(to top, #000033, #000080)' }}>
+    <div className='flex h-screen bg-black justify-center items-center'  style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
        <NavBar />
       <div className="w-1/2 p-10" style={{ fontFamily: 'Roboto Mono, monospace' }}>
        
@@ -107,6 +107,6 @@ const Home = () => {
       )}
     </div>
   );
-  
-}  
+};
+
 export default Home;
