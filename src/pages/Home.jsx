@@ -16,7 +16,7 @@ const Home = () => {
         <div className='text-left mt-32'>
           
           <h1 className='text-3xl mb-4'style={{ fontFamily: 'Playfair Display, serif' }}>WE ARE COMING SOON</h1>
-          <p className="text-lg " style={{ fontFamily: 'EB Garamond, serif' }}>Lorem ipsum dolor sit amet consecttur, adipisicing elit. Nobis, magnam minus culpa impedit quibusdam deserunt accusamus! Deleniti natus quasi officiis maxime dolorum expedita laboriosam, qui incidunt ipsum. Repellat excepturi ad tempore hic sed ex.</p>
+          <p className="text-lg " style={{ fontFamily: 'EB Garamond, serif' }}>Hello fellow learners! We're currently building a platform for you focusing on adaptive learning and personalized education . Stay tuned for more !!</p>
         </div>
       </div>
       <div className="w-1/2 h-full overflow-hidden">
