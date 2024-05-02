@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import "../Home.css";
 import emailjs from '@emailjs/browser';
 import NavBar from '../components/NavBar';
@@ -7,7 +7,7 @@ import animationData from '../assets/try1.json';
 import backgroundImage from '../assets/bg.jpg';
 
 const Home = () => {
-  const form= useRef();
+  const form = useRef();
   const [isModalOpen, setModalOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', comments: '' });
 
@@ -26,7 +26,7 @@ const Home = () => {
           console.log('FAILED...', error.text);
         },
       );
-      form.current.reset();
+    form.current.reset();
   };
 
   const openModal = () => {
@@ -66,25 +66,26 @@ const Home = () => {
   }, [isModalOpen]);
 
   return (
-    <div className='flex h-screen bg-black justify-center items-center'  style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-       <NavBar />
-      <div className="w-1/2 p-10" style={{ fontFamily: 'Roboto Mono, monospace' }}>
-       
-        <div className='text-center mt-32'>
-          <h1 className='text-3xl mb-4 text-white font-greek '>WE ARE<span className="bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text">
-          {" "} COMING SOON</span></h1>
-          <p className="text-xl text-white font-greek py-16 ">Prepare to revolutionize your learning experience with our adaptive platform, where education meets personalization. Stay tuned for a transformative journey tailored just for you!</p>
-          <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Contact Us</button>
+    <div className='flex flex-col h-screen bg-black justify-center items-center' style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <NavBar />
+      <div className='flex flex-col justify-center items-center h-full px-4 sm:flex-row'>
+        <div className="w-full sm:w-1/2 p-4 sm:p-10" style={{ fontFamily: 'Roboto Mono, monospace' }}>
+          <div className='text-center mt-8 sm:mt-32'>
+            <h1 className='text-2xl sm:text-3xl mb-4 text-white font-greek'>WE ARE<span className="bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text">
+              {" "} COMING SOON</span></h1>
+            <p className="text-base sm:text-xl text-white font-greek py-4 sm:py-16">Prepare to revolutionize your learning experience with our adaptive platform, where education meets personalization. Stay tuned for a transformative journey tailored just for you!</p>
+            <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Contact Us</button>
+          </div>
+        </div>
+        <div className="w-full sm:w-1/2 h-full flex justify-center items-center">
+          <Lottie animationData={animationData} />
         </div>
       </div>
-      <div className="w-1/2 h-full overflow-hidden">
-        <Lottie animationData={animationData} />
-      </div>
       {isModalOpen && (
-        <div className="modal-wrapper">
-          <div className="modal bg-white">
+        <div className="modal-wrapper fixed inset-0 flex items-center justify-center z-50">
+          <div className="modal bg-white rounded-lg p-6 max-w-md w-full">
             <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
-            <form ref= {form} onSubmit={sendEmail}>
+            <form ref={form} onSubmit={sendEmail}>
               <div className="mb-4">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
                 <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} className="mt-1 p-2 border rounded-md w-full" required />
