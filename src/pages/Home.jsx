@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import "../Home.css";
 import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import NavBar from '../components/NavBar';
 import Lottie from 'lottie-react';
 import animationData from '../assets/try1.json';
@@ -21,9 +23,12 @@ const Home = () => {
       .then(
         () => {
           console.log('SUCCESS!');
+          toast.success('Form submitted successfully!');
+          closeModal();
         },
         (error) => {
           console.log('FAILED...', error.text);
+          toast.error('Form submission failed. Please try again later.');
         },
       );
     form.current.reset();
@@ -106,6 +111,7 @@ const Home = () => {
           </div>
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 };
